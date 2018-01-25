@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>When _not_ to use arrows =></title>
+</head>
+<body>
+<style>
+  button { font-size: 100px; }
+  .on { background: #ffc600; }
+</style>
+<button id="pushy">Push Me</button>
+
+<script>
+  const button = document.querySelector('#pushy');
+  button.addEventListener('click', function() {
+    //we need this here
+    console.log(this);
+  });
+
+  const objLiteral = {
+    scores: 0,
+    add: function() {// need regular function
+      this.scores ++;
+    }
+  }
+
+  class Car {
+    constructor(brand = 'honda', color = 'red'){
+      this.brand = brand;
+      this.color = color;
+    }
+
+    sumarize() {
+      return `This car is coming from ${this.brand} with color is ${this.color}`;
+    }
+  }
+
+  Car.prototype.getPrize = function() {//use arrow here this context is Window
+    return '$140000';
+  }
+
+  const toyota = new Car('toyota', 'blue');
+  const honda = new Car('honda', 'white');
+  console.log(toyota, honda);
+
+  //we use arguments
+  function makeAThing() {
+    console.log(arguments);
+  }
+
+
+
+
+</script>
+</body>
+</html>
