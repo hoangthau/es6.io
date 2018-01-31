@@ -28,9 +28,17 @@
 </head>
 <body>
   <h2 class="jump">SPREADS!</h2>
-
 <script>
-  
+  const heading = document.querySelector('.jump');
+  const content = splitText(heading.textContent);
+  heading.innerHTML = content;
+
+  function splitText(text) {
+    return [...text].map(w => {
+      return `<span>${w}</span>`
+    }).join('');
+
+  }
 </script>
 </body>
 </html>
