@@ -21,7 +21,13 @@
   }
 
   const bill = tipCalc({ tip: 0.20, total: 200 });
-  console.log(bill);
+
+  function moneyCalc({total = 100, tax = 0.1, bonus = 0}) {
+    return total + (tax * total) + bonus;
+  }
+
+  const money = moneyCalc({bonus: 100, tax: 0.2, total: 200 });
+  console.log(money);
 
 </script>
 </body>

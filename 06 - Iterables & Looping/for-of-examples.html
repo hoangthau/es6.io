@@ -38,12 +38,29 @@
   //   console.log(char);
   // }
 
-  const ps = document.querySelectorAll('p');
-  for (const paragraph of ps) {
-    paragraph.addEventListener('click', function() {
-      console.log(this.textContent);
-    });
+  // const ps = document.querySelectorAll('p');
+  // for (const paragraph of ps) {
+  //   paragraph.addEventListener('click', function() {
+  //     console.log(this.textContent);
+  //   });
+  // }
+
+  function addUpNum() {
+    console.log(arguments);
+    let total = 0;
+    for(const num of arguments) {
+      total += num;
+    }
+    return total;
   }
+
+  console.log(addUpNum(1,2,3,4,5));
+
+  const myName = 'Dan Nguyen';
+  for(const char of myName) {
+    console.log(char);
+  }
+  
 
 </script>
 </body>

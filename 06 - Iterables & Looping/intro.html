@@ -23,22 +23,22 @@
 
   cuts.shop = 'MM MEats';
 
-  // for (let i = 0; i < cuts.length; i++) {
+  // for (let i = 0; i < cuts.length; i++) {//long syntax
   //   console.log(cuts[i]);
   // }
 
-  // cuts.forEach((cut) => {
+  // cuts.forEach((cut) => {// dont break and continue
   //   console.log(cut);
   //   if(cut === 'Brisket') {
   //     continue;
   //   }
   // });
 
-  // for (const index in cuts) {
+  // for (const index in cuts) {// loop over all kinds of prototype, ...
   //   console.log(cuts[index]);
   // }
 
-  for (const cut of cuts) {
+  for (const cut of cuts) {//great one. pretty handy. allow to break, contiune, Object like Array, index....
     if(cut === 'Brisket') {
       continue;
     }
