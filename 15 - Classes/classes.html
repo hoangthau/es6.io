@@ -1,27 +1,49 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
   <meta charset="UTF-8">
   <title>Inheritance Review</title>
 </head>
+
 <body>
-<script>
-  function Dog(name, breed) {
-    this.name = name;
-    this.breed = breed;
-  }
+  <script>
+    function Animal(name) {
+      this.name = name;
+      this.belly = [];
+    }
 
-  Dog.prototype.bark = function() {
-    console.log(`Bark Bark! My name is ${this.name}`);
-  };
+    Animal.prototype.eat = function (food) {
+      if (food) {
+        this.belly.push(food);
+      }
+      console.log('Eat from Animal');
+      return this.belly;
+    }
 
-  Dog.prototype.cuddle = function() {
-    console.log(`I love you owner!`);
-  };
+    function Dog(name, color) {
+      Animal.call(this, name);
+      this.color = color;
+    }
 
-  const snickers = new Dog('Snickers', 'King Charles');
-  const sunny = new Dog('Sunny', 'Golden Doodle');
+    Dog.prototype = Object.create(Animal.prototype);
 
-</script>
+    Dog.prototype.bark = function () {
+      console.log(`Bark bark!!! My name is ${this.name}`);
+    }
+
+    Dog.prototype.run = function () {
+      console.log(`Run run !!! My color is ${this.color}`);
+    }
+
+    Dog.prototype.eat = function (food) {
+      Animal.prototype.eat.call(this, food);
+      console.log(`Eat from dog`);
+    }
+
+    const sunny = new Dog('Mick', 'red');
+
+  </script>
 </body>
+
 </html>
